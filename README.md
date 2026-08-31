@@ -133,13 +133,3 @@ La captura de entradas se efectúa directamente en la ventana de la aplicación:
 
 ---
 
-## Modo de Pruebas Visuales (Depuración)
-
-Por especificación de diseño accesible, la ejecución se realiza en pantalla oscura. Para habilitar el mapa bidimensional con fines de verificación técnica:
-
-1. Abrir el archivo [`ui/visualizer.py`](ui/visualizer.py).
-2. Asignar el valor `True` a la variable de depuración:
-   ```python
-   DEBUG_VISUAL_MODE = True
-   ```
-3. Guardar los cambios y reiniciar la aplicación.
