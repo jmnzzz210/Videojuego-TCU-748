@@ -51,17 +51,10 @@ source .venv/bin/activate
 ```bash
 pip install -r requirements.txt
 ```
-*(O si tienes `make`: `make install`)*
 
 ### 5. Ejecutar el juego
-Puedes ejecutarlo directamente con Python:
 ```bash
 python3 main.py
-```
-O utilizando el script de ejecución rápida o make:
-```bash
-./jugar.sh
-# o: make run
 ```
 
 ---
@@ -75,26 +68,16 @@ git clone <URL_DEL_REPOSITORIO>
 cd Videojuego-TCU-748
 ```
 
-### 2. Instalar las dependencias
-En Windows tienes dos formas sencillas:
+### 2. Iniciar el juego
 - **Opción A (Recomendada):** Haz **doble clic** sobre el archivo:
-  ```cmd
-  instalar.bat
-  ```
-- **Opción B (Por consola):** Abre CMD o PowerShell y ejecuta:
-  ```cmd
-  pip install -r requirements.txt
-  ```
-
-> **Nota:** En Windows, la librería gráfica `tkinter` ya viene instalada por defecto con el instalador oficial de Python.
-
-### 3. Iniciar el juego
-- **Opción A:** Haz **doble clic** sobre el archivo:
   ```cmd
   jugar.bat
   ```
-- **Opción B:** Desde la consola ejecuta:
+  *(El script verifica e instala automáticamente las dependencias si faltan, y luego inicia el juego).*
+
+- **Opción B (Por consola):**
   ```cmd
+  pip install -r requirements.txt
   python main.py
   ```
 
@@ -121,8 +104,7 @@ Los controles se ejecutan directamente en la ventana de la aplicación:
 ├── main.py                    # Punto de entrada principal que arranca la interfaz gráfica
 ├── config.py                  # Parámetros globales: frecuencia de muestreo, límites de la sala
 ├── requirements.txt           # Lista de dependencias de Python
-├── jugar.sh                   # Script de ejecución para Linux
-├── jugar.bat                  # Script de ejecución con doble clic para Windows
+├── jugar.bat                  # Script de inicio con doble clic para Windows
 ├── .gitignore                 # Exclusiones de Git (caché, entornos virtuales)
 ├── README.md                  # Manual e instrucciones del proyecto
 │
