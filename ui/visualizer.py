@@ -133,10 +133,10 @@ class GameUI:
         ).pack(anchor="w", pady=(0, 10))
 
         texto_objetivo = (
-            "• Estás en una habitación completamente a oscuras.\n"
-            "• Utiliza únicamente tus oídos y auriculares para ubicar los sonidos.\n"
-            "• Escucha el teléfono y la radio para encontrar las pistas del código.\n"
-            "• Dirígete a la puerta e introduce el código para escapar."
+            "• Navegación espacial sin retroalimentación visual en entorno cerrado.\n"
+            "• Discriminación auditiva tridimensional de las fuentes sonoras.\n"
+            "• Identificación de las secuencias numéricas del teléfono y la radio.\n"
+            "• Introducción del código de seguridad en la puerta de salida para completar el nivel."
         )
         tk.Label(
             desc_box,
@@ -162,12 +162,12 @@ class GameUI:
         grid_frame.pack(fill="x")
 
         controles = [
-            ("W  /  ↑", "Avanzar un paso"),
-            ("S  /  ↓", "Retroceder un paso"),
-            ("A  /  ←", "Girar a la izquierda (90°)"),
-            ("D  /  →", "Girar a la derecha (90°)"),
+            ("W  /  ↑", "Avanzar"),
+            ("S  /  ↓", "Retroceder"),
+            ("A  /  ←", "Girar izquierda (90°)"),
+            ("D  /  →", "Girar derecha (90°)"),
             ("ESPACIO / E", "Interactuar con objeto al frente"),
-            ("L  /  P", "Escuchar pulso sonoro 3D"),
+            ("L  /  P", "Emitir pulso acústico 3D"),
         ]
 
         for i, (tecla, accion) in enumerate(controles):
@@ -192,7 +192,7 @@ class GameUI:
         # Botón de Inicio prominente
         btn_jugar = tk.Button(
             center,
-            text="  ▶  JUGAR  ",
+            text="  JUGAR  ",
             font=("Helvetica", 24, "bold"),
             bg=ACCENT, fg=WHITE,
             activebackground=ACCENT_HOVER,
@@ -206,7 +206,7 @@ class GameUI:
 
         tk.Label(
             center,
-            text="🎧 Recuerda colocarte auriculares para percibir la dirección de los sonidos",
+            text="Uso indispensable de auriculares estéreo para la percepción espacial del sonido",
             font=("Helvetica", 15),
             bg=BG_DARK, fg=GRAY
         ).pack()
@@ -231,7 +231,7 @@ class GameUI:
         self.engine = GameEngine()
         self.engine.running = True
         self.engine.start_ambient()
-        self._message = "La habitación está a oscuras. Escucha a tu alrededor para orientarte..."
+        self._message = "Navegación auditiva iniciada. Identificación de fuentes sonoras en curso."
         self._show_game_screen()
 
     def _show_game_screen(self):
@@ -285,14 +285,7 @@ class GameUI:
 
             tk.Label(
                 self.center_info,
-                text="🎧",
-                font=("Helvetica", 64),
-                bg=BG_BLACK, fg="#222222"
-            ).pack(pady=(0, 14))
-
-            tk.Label(
-                self.center_info,
-                text="Usa las teclas W, A, S, D para moverte y ESPACIO para interactuar",
+                text="Controles de movimiento: W, A, S, D  |  Interacción: Barra espaciadora",
                 font=("Helvetica", 18),
                 bg=BG_BLACK, fg="#333333"
             ).pack()
@@ -485,22 +478,22 @@ class GameUI:
         # Mensaje de Felicitaciones
         tk.Label(
             outer,
-            text="¡FELICIDADES!",
+            text="TUTORIAL COMPLETADO",
             font=("Helvetica", 46, "bold"),
             bg=BG_DARK, fg=GREEN_BRIGHT
         ).pack(pady=(0, 16))
 
         tk.Label(
             outer,
-            text="Completaste el tutorial.",
-            font=("Helvetica", 28, "bold"),
+            text="Nivel de inducción finalizado exitosamente.",
+            font=("Helvetica", 26, "bold"),
             bg=BG_DARK, fg=WHITE
         ).pack(pady=(0, 12))
 
         tk.Label(
             outer,
-            text="Pronto habrá continuación de la historia.",
-            font=("Helvetica", 22),
+            text="Próximamente disponible la continuación de la historia.",
+            font=("Helvetica", 20),
             bg=BG_DARK, fg=GRAY_LIGHT
         ).pack(pady=(0, 30))
 

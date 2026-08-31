@@ -101,14 +101,14 @@ class Level1:
             if self.phone_discovered and self.radio_discovered:
                 self.door_unlocked = True
                 self.completed = True
-                return "Has introducido el código 7-4-8. El cerrojo se abre y la puerta se destraba. ¡Felicidades! Completaste el tutorial, pronto habrá continuación de la historia."
+                return "Código 7-4-8 introducido correctamente. Cerrojo electrónico abierto. Tutorial completado exitosamente."
             else:
                 pistas_faltantes = []
                 if not self.phone_discovered:
                     pistas_faltantes.append("el teléfono a la izquierda")
                 if not self.radio_discovered:
                     pistas_faltantes.append("la radio a la derecha")
-                return f"La puerta requiere un código numérico. Te falta inspeccionar: {' y '.join(pistas_faltantes)}."
+                return f"La puerta requiere un código numérico. Pendiente de inspeccionar: {' y '.join(pistas_faltantes)}."
 
         puerta.on_interact_callback = interact_puerta
 

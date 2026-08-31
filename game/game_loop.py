@@ -171,8 +171,7 @@ class GameEngine:
             return ""
         else:
             self.narrator.play_sound(self.level.sfx["golpe_pared"])
-            return "¡Chocaste con una pared!"
-
+            return "Colisión con límite perimetral de la sala."
     def do_backward(self) -> str:
         """Retrocede un paso. Retorna mensaje si choca con pared."""
         moved = self.player.move_backward(MOVE_STEP)
@@ -181,9 +180,8 @@ class GameEngine:
             return ""
         else:
             self.narrator.play_sound(self.level.sfx["golpe_pared"])
-            return "¡Chocaste con una pared!"
+            return "Colisión con límite perimetral de la sala."
 
-    def do_turn_left(self) -> str:
         """Gira a la izquierda 90°."""
         self.player.turn_left(TURN_STEP)
         return ""
@@ -209,10 +207,9 @@ class GameEngine:
 
         if best_candidate is None:
             self.narrator.play_sound(self.level.sfx["error"])
-            return "No hay ningún objeto cerca."
+            return "Ningún objeto detectado en el radio de alcance."
 
         can_interact, reason = best_candidate.can_interact(self.player)
-
         if can_interact:
             self.narrator.play_sound(self.level.sfx["confirmacion"], wait=True)
             msg = best_candidate.interact()
@@ -224,20 +221,17 @@ class GameEngine:
 
             if distance > best_candidate.interaction_radius:
                 self.narrator.play_sound(self.level.sfx["error"])
-                return f"{best_candidate.name} está a {distance:.1f}m. Acércate más."
+                return f"{best_candidate.name} a {distance:.1f} m. Distancia fuera de rango."
 
             elif abs(azimuth_rel) > best_candidate.angle_threshold:
                 self.narrator.play_sound(self.level.sfx["orientacion_mal"])
-                if azimuth_rel > 0:
-                    return f"{best_candidate.name} está a tu derecha ({azimuth_rel:+.0f}°). Gira a la derecha."
+                    return f"{best_candidate.name} situado a la derecha ({azimuth_rel:+.0f}°). Orientación frontal requerida."
                 else:
-                    return f"{best_candidate.name} está a tu izquierda ({azimuth_rel:+.0f}°). Gira a la izquierda."
+                    return f"{best_candidate.name} situado a la izquierda ({azimuth_rel:+.0f}°). Orientación frontal requerida."
 
             elif best_candidate.name == "Puerta de Salida":
-                self.narrator.play_sound(self.level.sfx["puerta_bloqueada"])
                 return reason
 
-            else:
                 self.narrator.play_sound(self.level.sfx["error"])
                 return reason
 

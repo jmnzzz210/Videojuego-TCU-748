@@ -33,7 +33,7 @@ class Narrator:
 
     def narrate(self, message: str, delay_after: float = 0.2):
         """Muestra un texto narrativo en pantalla."""
-        print(f"\n📢 {message}")
+        print(f"\n{message}")
         time.sleep(delay_after)
 
     def play_sound(self, audio: np.ndarray, wait: bool = False):
@@ -45,8 +45,8 @@ class Narrator:
     def announce_status(self, player_desc: str, compass: str, objects_info: list[str]):
         """Imprime el estado de orientación y las fuentes de sonido alrededor del jugador."""
         print("\n" + "─" * 48)
-        print(f"🧭 Posición: {player_desc} | Mirando: {compass}")
-        print("🔊 Fuentes de sonido perceptibles:")
+        print(f"Posición: {player_desc} | Mirando: {compass}")
+        print("Fuentes de sonido perceptibles:")
         for info in objects_info:
             print(f"   • {info}")
         print("─" * 48)

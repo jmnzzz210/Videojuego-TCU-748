@@ -79,10 +79,10 @@ class SoundObject:
             return False, f"Demasiado lejos de {self.name} ({distance:.1f}m > {self.interaction_radius:.1f}m)."
 
         if abs(azimuth_rel) > self.angle_threshold:
-            lado = "a tu derecha" if azimuth_rel > 0 else "a tu izquierda"
-            return False, f"{self.name} está cerca pero {lado} ({azimuth_rel:+.0f}°). Gira para encararlo."
+            lado = "a la derecha" if azimuth_rel > 0 else "a la izquierda"
+            return False, f"{self.name} localizado {lado} ({azimuth_rel:+.0f}°). Requiere orientación frontal."
 
-        return True, f"En posición para interactuar con {self.name}."
+        return True, f"Posición válida para interacción con {self.name}."
 
     def interact(self) -> str:
         """
@@ -94,7 +94,7 @@ class SoundObject:
             if custom_msg:
                 return custom_msg
 
-        return self.interaction_text or f"Has interactuado con {self.name}."
+        return self.interaction_text or f"Interacción efectuada con {self.name}."
 
     def get_clock_direction(self, player: Player) -> str:
         """

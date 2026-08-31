@@ -1,4 +1,4 @@
-# Ecos en la Estación 🎧
+# Ecos en la Estación
 ### Videojuego Accesible basado en Audio Espacial 3D (HRTF)
 
 **TCU-748: Tecnoinclusión**  
@@ -7,75 +7,76 @@
 
 ---
 
-## 📖 Descripción del Proyecto
+## Descripción del Proyecto
 
-**Ecos en la Estación** es un prototipo de videojuego de exploración accesible basado en **Audio Espacial 3D** mediante técnicas de **HRTF** (*Head-Related Transfer Function*), diseñado para personas no videntes y experiencias inmersivas puramente auditivas.
+**Ecos en la Estación** es un prototipo de videojuego de exploración accesible basado en **Audio Espacial 3D** mediante técnicas de **HRTF** (*Head-Related Transfer Function*), diseñado para personas no videntes y experiencias inmersivas auditivas.
 
-Al presionar **JUGAR**, la aplicación pasa a una pantalla oscura para promover la inmersión auditiva completa. El jugador debe orientarse en el espacio de la habitación utilizando sus oídos para identificar fuentes de sonido (teléfono, radio y puerta de salida), descifrar las pistas acústicas y escapar.
+La aplicación prescinde de retroalimentación visual durante la ejecución del nivel para priorizar la orientación por audio. La dinámica requiere la discriminación auditiva tridimensional de las fuentes sonoras presentes en el recinto (teléfono, radio y puerta de salida), la recolección de las claves numéricas y la apertura del acceso final.
 
 ---
 
-## 🎧 Requisitos Previos
+## Requisitos Previos
 
-1. **Python 3.8 o superior** instalado en el sistema.
+1. **Python 3.8 o superior**.
 2. **Auriculares estéreo** (imprescindibles para percibir la espacialización acústica 3D: diferencias interaurales de tiempo ITD, diferencias de nivel ILD y filtrado de pabellón auricular).
 3. **Librerías de Python**:
    - `sounddevice` (reproducción de audio en tiempo real)
-   - `numpy` (cálculo matricial y generación de ondas)
+   - `numpy` (cálculo matricial y generación de señales)
    - `scipy` (procesamiento digital de señales y filtros acústicos)
-   - `tkinter` (interfaz gráfica de usuario, incluida por defecto en la mayoría de instalaciones de Python)
+   - `tkinter` (interfaz gráfica del sistema)
 
 ---
 
-## 🐧 Instrucciones de Instalación y Ejecución en Linux
+## Instrucciones de Instalación y Ejecución en Linux
 
-### 1. Clonar el repositorio y entrar a la carpeta
+### 1. Clonar el repositorio y acceder al directorio
 ```bash
 git clone <URL_DEL_REPOSITORIO>
 cd Videojuego-TCU-748
 ```
 
-### 2. Verificar soporte de Tkinter (en distribuciones basadas en Debian / Ubuntu)
+### 2. Instalación de soporte Tkinter (distribuciones basadas en Debian / Ubuntu)
 ```bash
 sudo apt update
 sudo apt install python3-tk
 ```
 
-### 3. Crear y activar un entorno virtual
+### 3. Creación y activación del entorno virtual
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-### 4. Instalar dependencias
+### 4. Instalación de dependencias
 ```bash
 pip install -r requirements.txt
 ```
 
-### 5. Ejecutar el juego
+### 5. Ejecución del videojuego
 ```bash
 python3 main.py
 ```
 
 ---
 
-## 🪟 Instrucciones de Instalación y Ejecución en Windows
+## Instrucciones de Instalación y Ejecución en Windows
 
-### 1. Clonar o descargar el repositorio
-Descarga el repositorio como archivo ZIP y extráelo, o clónalo usando Git:
+### 1. Obtención del repositorio
+Descargar el repositorio en formato ZIP y descomprimir, o clonar mediante Git:
 ```cmd
 git clone <URL_DEL_REPOSITORIO>
 cd Videojuego-TCU-748
 ```
 
-### 2. Iniciar el juego
-- **Opción A (Recomendada):** Haz **doble clic** sobre el archivo:
+### 2. Ejecución de la aplicación
+- **Método automático:**
+  Ejecutar mediante doble clic el archivo:
   ```cmd
   jugar.bat
   ```
-  *(El script verifica e instala automáticamente las dependencias si faltan, y luego inicia el juego).*
+  *(El script comprueba la presencia de las dependencias requeridas, realiza la instalación en caso de ausencia e inicia el programa).*
 
-- **Opción B (Por consola):**
+- **Método manual por consola:**
   ```cmd
   pip install -r requirements.txt
   python main.py
@@ -83,53 +84,64 @@ cd Videojuego-TCU-748
 
 ---
 
-## 🎮 Controles del Videojuego
+## Controles del Videojuego
 
-Los controles se ejecutan directamente en la ventana de la aplicación:
+La captura de entradas se efectúa directamente en la ventana de la aplicación:
 
 | Tecla | Acción |
 | :--- | :--- |
-| **W** / **▲** | Avanzar un paso hacia el frente |
-| **S** / **▼** | Retroceder un paso |
-| **A** / **◀** | Girar 90° hacia la izquierda |
-| **D** / **▶** | Girar 90° hacia la derecha |
-| **ESPACIO** / **E** / **ENTER** | Interactuar con el objeto que tienes de frente |
-| **L** / **P** | Escuchar un pulso acústico 3D de todo el entorno |
+| **W** / **Flecha Arriba** | Avanzar |
+| **S** / **Flecha Abajo** | Retroceder |
+| **A** / **Flecha Izquierda** | Girar 90° a la izquierda |
+| **D** / **Flecha Derecha** | Girar 90° a la derecha |
+| **ESPACIO** / **E** / **ENTER** | Interactuar con el objeto situado al frente |
+| **L** / **P** | Emitir pulso acústico 3D para sondeo del entorno |
 
 ---
 
-## 📁 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```text
-├── main.py                    # Punto de entrada principal que arranca la interfaz gráfica
-├── config.py                  # Parámetros globales: frecuencia de muestreo, límites de la sala
-├── requirements.txt           # Lista de dependencias de Python
-├── jugar.bat                  # Script de inicio con doble clic para Windows
-├── .gitignore                 # Exclusiones de Git (caché, entornos virtuales)
-├── README.md                  # Manual e instrucciones del proyecto
+├── main.py                    # Punto de entrada principal e inicio de la interfaz gráfica
+├── config.py                  # Parámetros del sistema: frecuencia de muestreo y dimensiones
+├── requirements.txt           # Especificación de dependencias de Python
+├── jugar.bat                  # Script de ejecución para Windows
+├── .gitignore                 # Exclusiones de control de versiones
+├── README.md                  # Documentación técnica del proyecto
 │
 ├── ui/                        # Interfaz gráfica (Tkinter)
 │   ├── __init__.py
-│   └── visualizer.py          # Pantalla de bienvenida, juego inmersivo y finalización
+│   └── visualizer.py          # Ventanas de bienvenida, ejecución inmersiva y finalización
 │
-├── audio/                     # Motor acústico y sintetizador
+├── audio/                     # Motor acústico y procesamiento digital de señales
 │   ├── __init__.py
-│   ├── hrtf_engine.py         # Motor HRTF 3D (cálculo de ITD, ILD, pinna, distancia y reverberación)
-│   ├── sound_generator.py     # Síntesis matemática de efectos sonoros y cargador WAV
-│   ├── mixer.py               # Mezclador thread-safe con cerrojo para sounddevice
-│   └── assets/                # Efectos de sonido en formato WAV
+│   ├── hrtf_engine.py         # Procesamiento HRTF (ITD, ILD, pinna, atenuación y reverberación)
+│   ├── sound_generator.py     # Síntesis matemática de formas de onda y lectura WAV
+│   ├── mixer.py               # Mezclador con control de concurrencia para sounddevice
+│   └── assets/                # Archivos de audio en formato WAV
 │
-├── game/                      # Lógica de juego y niveles
+├── game/                      # Lógica de juego y estados
 │   ├── __init__.py
-│   ├── player.py              # Cinemática del jugador, posición (x, y) y dirección
-│   ├── sound_object.py        # Objetos sonoros emisores con cálculo espacial relativo
-│   ├── level_1.py             # Configuración del tutorial / Nivel 1 (teléfono, radio, puerta)
-│   ├── narrator.py            # Emisor de mensajes de pantalla y sonidos prioritarios
-│   └── game_loop.py           # Motor de coordinación de lógica e interacciones
+│   ├── player.py              # Cinemática, coordenadas espaciales y dirección del jugador
+│   ├── sound_object.py        # Definición de emisores acústicos y parámetros relativos
+│   ├── level_1.py             # Configuración del tutorial (teléfono, radio y puerta)
+│   ├── narrator.py            # Emisión de eventos y mensajes sonoros prioritarios
+│   └── game_loop.py           # Coordinación de la lógica interactiva
 │
 └── input/                     # Módulo auxiliar de entrada
     ├── __init__.py
-    └── controls.py            # Mapeo de teclas y acciones
+    └── controls.py            # Definición de acciones y constantes de entrada
 ```
 
 ---
+
+## Modo de Pruebas Visuales (Depuración)
+
+Por especificación de diseño accesible, la ejecución se realiza en pantalla oscura. Para habilitar el mapa bidimensional con fines de verificación técnica:
+
+1. Abrir el archivo [`ui/visualizer.py`](ui/visualizer.py).
+2. Asignar el valor `True` a la variable de depuración:
+   ```python
+   DEBUG_VISUAL_MODE = True
+   ```
+3. Guardar los cambios y reiniciar la aplicación.
