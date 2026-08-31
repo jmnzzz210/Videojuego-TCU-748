@@ -11,14 +11,12 @@
 
 **Ecos en la Estación** es un prototipo de videojuego de exploración accesible basado en **Audio Espacial 3D** mediante técnicas de **HRTF** (*Head-Related Transfer Function*), diseñado para personas no videntes y experiencias inmersivas auditivas.
 
-La aplicación prescinde de retroalimentación visual durante la ejecución del nivel para priorizar la orientación por audio. La dinámica requiere la discriminación auditiva tridimensional de las fuentes sonoras presentes en el recinto (teléfono, radio y puerta de salida), la recolección de las claves numéricas y la apertura del acceso final.
-
 ---
 
 ## Requisitos Previos
 
 1. **Python 3.8 o superior**.
-2. **Auriculares estéreo** (imprescindibles para percibir la espacialización acústica 3D: diferencias interaurales de tiempo ITD, diferencias de nivel ILD y filtrado de pabellón auricular).
+2. **Auriculares estéreo** (imprescindibles para percibir la espacialización acústica 3D).
 3. **Librerías de Python**:
    - `sounddevice` (reproducción de audio en tiempo real)
    - `numpy` (cálculo matricial y generación de señales)
@@ -31,7 +29,7 @@ La aplicación prescinde de retroalimentación visual durante la ejecución del 
 
 ### 1. Clonar el repositorio y acceder al directorio
 ```bash
-git clone <URL_DEL_REPOSITORIO>
+git clone https://github.com/jmnzzz210/Videojuego-TCU-748
 cd Videojuego-TCU-748
 ```
 
@@ -64,7 +62,7 @@ python3 main.py
 ### 1. Obtención del repositorio
 Descargar el repositorio en formato ZIP y descomprimir, o clonar mediante Git:
 ```cmd
-git clone <URL_DEL_REPOSITORIO>
+git clone https://github.com/jmnzzz210/Videojuego-TCU-748
 cd Videojuego-TCU-748
 ```
 
