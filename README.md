@@ -151,14 +151,3 @@ Los controles se ejecutan directamente en la ventana de la aplicación:
 ```
 
 ---
-
-## 🛠️ Modo de Pruebas Visuales (Depuración)
-
-Por diseño accesible, el juego corre en pantalla oscura. Si en el futuro deseas reactivar el mapa 2D en tiempo real con las posiciones, flechas de orientación y distancias en metros para pruebas técnicas:
-
-1. Abre el archivo [`ui/visualizer.py`](ui/visualizer.py).
-2. Cambia la variable:
-   ```python
-   DEBUG_VISUAL_MODE = True
-   ```
-3. Guarda el archivo y ejecuta nuevamente el juego.
