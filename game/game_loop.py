@@ -225,13 +225,16 @@ class GameEngine:
 
             elif abs(azimuth_rel) > best_candidate.angle_threshold:
                 self.narrator.play_sound(self.level.sfx["orientacion_mal"])
+                if azimuth_rel > 0:
                     return f"{best_candidate.name} situado a la derecha ({azimuth_rel:+.0f}°). Orientación frontal requerida."
                 else:
                     return f"{best_candidate.name} situado a la izquierda ({azimuth_rel:+.0f}°). Orientación frontal requerida."
 
             elif best_candidate.name == "Puerta de Salida":
+                self.narrator.play_sound(self.level.sfx["puerta_bloqueada"])
                 return reason
 
+            else:
                 self.narrator.play_sound(self.level.sfx["error"])
                 return reason
 
